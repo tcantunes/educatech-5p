@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computadores</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../static/videos.css" />
+</head>
+
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-colslapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="../../index.html">INÍCIO</a>
+            </li>
+            <li class="nav-item" id="profileButton" style="display: none;">
+              <a class="nav-link btn btn-primary" href="./usuario.html">PÁGINA DO USUÁRIO</a>
+            </li>
+            <li class="nav-item" id="cursoButton" style="display: none;">
+              <a class="nav-link btn btn-primary" href="./cursos.html">CURSOS</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contato.html">NOS CONTATE</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <div class="titulos">
+      <h1 id="userName" class="nome-usuario"></h1>
+      <h2>ESSES SÃO OS CURSOS SOBRE COMPUTADORES:</h2>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <a href="https://www.youtube.com/watch?v=04dlLcF-pLQ" class="video-link">
+          <img src="../img/teclado.jfif" alt="">
+          <h3>Aula básica de teclado</h3>
+          <p>Nessa aula você irá aprender o básico sobre as teclas do seu computador e algumas funções!</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://www.youtube.com/watch?v=npD8yZpJFBc" class="video-link">
+          <img src="../img/computador.webp" alt="">
+          <h3>Conhecendo seu computador</h3>
+          <p>Nesse vídeo você irá entender melhor o que é seu computador e suas funções.</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://www.youtube.com/watch?v=W6AjrQndE-g&list=PLZlrVPEjToWvgQijawr5VNyU37JGuHgL5&index=5"
+          class="video-link">
+          <img src="../img/areatrab.jpg" alt="">
+          <h3>Área de trabalho windows</h3>
+          <p>Nesse vídeo você irá aprender sobre o Windows 10 e sua área de trabalho, a tela principal do seu
+            computador.</p>
+        </a>
+      </div>
+      <div class="card">
+        <a href="https://www.youtube.com/watch?v=ayuK7DzYIWE&list=PLZlrVPEjToWvgQijawr5VNyU37JGuHgL5&index=6"
+          class="video-link">
+          <img src="../img/janela.jpg" alt="">
+          <h3>Janelas do Windows</h3>
+          <p>Nesse vídeo você irá aprender sobre as janelas do Windows, onde o sistema apresenta informações.</p>
+        </a>
+      </div>
+    </div>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const userName = sessionStorage.getItem('userName');
+      document.getElementById('userName').textContent = `Olá, ${userName}!`;
+
+      const videoLinks = document.querySelectorAll('.video-link');
+      videoLinks.forEach(link => {
+        link.addEventListener('click', function (event) {
+          const videoTitle = link.querySelector('h3').textContent;
+          const videoUrl = link.href;
+
+          let watchedVideos = JSON.parse(sessionStorage.getItem('watchedVideos')) || [];
+          watchedVideos.push({ title: videoTitle, url: videoUrl });
+          sessionStorage.setItem('watchedVideos', JSON.stringify(watchedVideos));
+        });
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const userName = sessionStorage.getItem('userName');
+      if (userName) {
+        document.getElementById('profileButton').style.display = 'block';
+        document.getElementById('cursoButton').style.display = 'block';
+      }
+    });
+  </script>
+</body>
+
+</html>

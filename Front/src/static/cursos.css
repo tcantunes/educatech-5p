@@ -1,0 +1,64 @@
+* {
+  padding: 0;
+  margin: 0;
+  vertical-align: baseline;
+  list-style: none;
+  border: 0;
+}
+
+body {
+  background-color: #d16344;
+  height: 100vh;
+}
+
+header {
+  height: 60px;
+  background-color: #f1e8b4;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  padding: 10px;
+}
+
+.nav-item {
+  background-color: #d7bf5e;
+  color: #83555e;
+  font-size: 16px;
+  border-radius: 15px;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: currentColor;
+}
+
+.nav-link:hover {
+  color: #83555e;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #e9c798;
+  margin: 20px;
+  text-align: center;
+  color: #83555e;
+  font-weight: bold;
+}
+
+.btn-cursos {
+  background-color: #d7bf5e;
+  color: #83555e;
+  font-size: 18px;
+  border-radius: 15px;
+  font-weight: bold;
+  width: 140px;
+  height: 50px;
+}
