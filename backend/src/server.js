@@ -13,7 +13,7 @@ const dbPassword = process.env.DB_PASSWORD;
 
 mongoose
   .connect(
-    `mongodb+srv://tcanarcizo:194556606056@educatech.y9fxekf.mongodb.net/?retryWrites=true&w=majority&appName=educatech`
+    `mongodb+srv:/${dbHost}:${dbPassword}@educatech.y9fxekf.mongodb.net/?retryWrites=true&w=majority&appName=educatech`
   )
   .then(() => {
     console.log("Conexão estabelecida com sucesso");
